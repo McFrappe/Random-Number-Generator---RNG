@@ -50,7 +50,7 @@ public class graphics extends JFrame implements ActionListener {
         window.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) throws NoInputException {
         if (e.getSource() == Generate) {
             String f = this.floorTF.getText();
             String r = this.roofTF.getText();
