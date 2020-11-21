@@ -1,4 +1,4 @@
-#Random Number Generator - RNG
+# Random Number Generator - RNG
 A simple number generator that generates a random number within a specified range.
 This generator also has a UI that is simple and straightforward.
 The generator right now uses the Java.lang.Math library to generate random numbers
