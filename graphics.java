@@ -3,14 +3,15 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class graphics extends JFrame implements ActionListener {
+        JFrame window = new JFrame();
     private JTextField floorTF;
     private JTextField roofTF;
     private JButton Generate;
     private JLabel generatedNumber = new JLabel("Random generated number: null");
+    private JLabel errorMsg = new JLabel("No input in one or both textfields.");
     backend backendAccess = null;
 
     public graphics(backend backendAccess) {
-        JFrame window = new JFrame();
         this.backendAccess = backendAccess;
         window.getContentPane().setLayout(new BorderLayout());
         window.setSize(250, 300);
@@ -57,18 +58,16 @@ public class graphics extends JFrame implements ActionListener {
         window.add(buttonPanel, BorderLayout.PAGE_END);
 
         window.setVisible(true);
+        window.setVisible(true);
     }
-
-    public void actionPerformed(ActionEvent e) throws NoInputException {
-        if (e.getSource() == Generate) {
-            String f = this.floorTF.getText();
-            String r = this.roofTF.getText();
-            if (f.length() > 0 && r.length() > 0) {
-                this.setBoundaries(Integer.parseInt(f), Integer.parseInt(r));
-                this.generatedNumber.setText("Random generated number: " + this.generateRandomNumber());
-            } else {
-                throw new NoInputException("There is no input in one or both textfields.");
-            }
+    public void actionPerformed(ActionEvent e) {
+        String f = this.floorTF.getText();
+        String r = this.roofTF.getText();
+        if (e.getSource() == Generate && r.length() > 0 && f.length() > 0) {
+            this.setBoundaries(Integer.parseInt(f), Integer.parseInt(r));
+            this.generatedNumber.setText("Random generated number: " + this.generateRandomNumber());
+        } else {
+            this.generatedNumber.setText("No input in one or both textfield");
         }
     }
 
