@@ -1,7 +1,7 @@
 all:
 	javac -d classes *.java
 
-run:
+run: all
 	java -cp classes frontend
 
 clean:
