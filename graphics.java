@@ -7,10 +7,11 @@ public class graphics extends JFrame implements ActionListener {
     private JTextField roofTF;
     private JButton Generate;
     private JLabel generatedNumber = new JLabel("Random generated number: null");
-    backend backendAccess = new backend();
+    backend backendAccess = null;
 
-    public graphics() {
+    public graphics(backend backendAccess) {
         JFrame window = new JFrame();
+        this.backendAccess = backendAccess;
         window.getContentPane().setLayout(new BorderLayout());
         window.setSize(250, 300);
         window.setResizable(false);
@@ -33,6 +34,14 @@ public class graphics extends JFrame implements ActionListener {
         this.Generate.addActionListener(this);
 
         JPanel holdTextfields = new JPanel(new BorderLayout());
+        
+        buttonPanel.setBackground(Color.BLACK);
+        numberPanel.setBackground(Color.BLACK);
+        floorPanel.setBackground(Color.BLACK);
+        roofPanel.setBackground(Color.BLACK);
+        floorText.setForeground(Color.WHITE);
+        roofText.setForeground(Color.WHITE);
+        this.generatedNumber.setForeground(Color.WHITE);
 
         buttonPanel.add(Generate);
         numberPanel.add(generatedNumber);        
